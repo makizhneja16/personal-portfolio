@@ -6,7 +6,7 @@ ___
 ![ images](http://url//ro/img.png)
 
 ***
-## **content**
+## **CONTENT**
 - **SETUP/USAGE/HOW TO**
 - **ACQUIRED KNOWLEDGE**
 - **fAQ/CONTACT**
