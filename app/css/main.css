@@ -1,48 +1,37 @@
 body{
     background-color: lightgrey
 }
-
 .container{
-    width: 700px;
+    width: 80%;
     margin: auto;
-    background-color:lightgreen;
+    background-color:white;
     padding:0 10px;
-    height: 3000px;
+    height: 2500px;
 }
-
 header h1{
     font-size: 25px;
-    font-weight: 50px;
+    font-weight: bold;
     font-style: normal;
     padding-bottom: 10px;
 }
-
 header p{
     font-size: 20px;
     font-style: normal;
     padding-bottom: 10px;
     line-height: 15px;
-    
-
 }
-
 header a:link{
-color: yellow;
+color: black
 }
 header a:hover{
 color: orange;
 }
-
 header a:active{
 color: blue ;
 }
 header a:visited{
 color: mediumvioletred;
-
 }
-
-
-
 .information{
      margin: 0 0 15px;
 }
@@ -51,53 +40,41 @@ color: mediumvioletred;
     font-size: 25px;
     padding: 10px 15px;
     margin: 15px;
-    text-shadow: 5px 5px 10px;
 }
-
-
+.information h3{
+    padding: 11px 21px;
+    font-size: 20px;
+}
 .information .info-data{
-    
     padding-left: 20px;
     font-size: 20px;
     line-height: normal;
 }
-
-.table-1{
-
+.list-1{
+    padding: 0px 32px;
 }
-
-.table-1 tr{
-
+.list-2{
+    padding: 0px 32px;
+}
+.table-1{
+    margin: auto;
 }
 .table-1 td{
 background-color: lightgrey;
 border: solid 2px black;
 text-align: center;
 }
-
 .table-1 th{
 background-color: lightgrey;
 border: solid 2px black;
-text-shadow: 5px 5px 10px;
-
 
 }
-
-.form-style-1{
-
-}
-
 .form-style-1 .fixed-width{
     min-width: 200px;
     display: inline-block;
-
-
 }
-
 .form-style-1 .input-section{
-
-margin-bottom:25px;
-
+   margin-bottom:25px;
 }
 .form-style-1 input[type="text"],
 .form-style-1 input[type="email"],
@@ -107,37 +84,25 @@ margin-bottom:25px;
     border: solid 1px yellow;
     padding: 4px;
     min-width: 200px;
-
-
 }
-
 .form-style-1 .action-section{
     margin-left: 200px;
     display: inline-block;
-    
 }
-
 .form-style-1 textarea{
-
-    min-height: 150px;
+  min-height: 150px;
 }
-
-
-
 .form-style-1 input:focus{
     border-color: red;
     outline: none;
     box-shadow: blue 0 0 10px 3px;
 }
-
 .primary-button{
 background-color: crimson;
 border: none;
 padding: 10px 28px;
 color: white;
 cursor: pointer;
-font: size 15px;
-
-
+font-size: 15px;
 }
 
