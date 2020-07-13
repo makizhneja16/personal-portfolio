@@ -3,7 +3,7 @@ ___
 ## A webpage to showcase my skillset.
 
 
-![ images](http://url//ro/img.png)
+
 
 ***
 ## **CONTENT**
