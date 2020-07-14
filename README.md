@@ -1,5 +1,5 @@
 # # PERSONAL PORT FOLIO
-___
+
 ## A webpage to showcase my skillset.
 
 
@@ -87,7 +87,7 @@ lite server is a lightweight development web server with support for Single Page
 ### CONTACT:
 
 - **contact name:** makizh
-- **phone number:** 88xxxxx442
+- **phone number:** 8883714704
 - **USER ID:** makizhneja16
 
 
