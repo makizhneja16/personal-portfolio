@@ -1,0 +1,46 @@
+@media (max-width:530px) {
+  header h1{
+    color: red;
+  }
+  .container{
+      width: 100%;
+  }
+}
+
+@media (min-width:531px) and (max-width:650px) {
+      header h1{
+          color: blue;
+        }
+        .container{
+            width: 511px;
+        }
+}
+
+@media (min-width:651px) and (max-width:759px) {
+    header h1{
+        color: orange;
+      }
+      .container{
+          width: 631px;
+      }
+}
+
+
+@media (min-width:760px) and (max-width:869px) {
+    header h1{
+       color: green;
+     }
+     .container{
+         width: 740px;
+      }
+}
+
+
+@media (min-width:870px) and (max-width:1200px) {
+    header h1{
+       color: pink;
+     }
+     .container{
+         width: 860px;
+      }
+}

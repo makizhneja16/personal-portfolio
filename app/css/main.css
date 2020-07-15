@@ -1,12 +1,16 @@
+*{
+    box-sizing: border-box;
+}
 body{
     background-color: lightgrey
 }
 .container{
-    width: 80%;
+    width: 660px;
     margin: auto;
     background-color:white;
     padding:0 10px;
-    height: 2500px;
+    height: 2750px;
+    
 }
 header h1{
     font-size: 25px;
