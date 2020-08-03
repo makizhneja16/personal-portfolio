@@ -1,11 +1,11 @@
 {
   "name": "personal-portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "***\r ## **CONTENT**\r - **SETUP/USAGE/HOW TO**\r - **ACQUIRED KNOWLEDGE**\r - **fAQ/CONTACT**",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"lite-server"
+    "start": "lite-server"
   },
   "repository": {
     "type": "git",
