@@ -109,4 +109,11 @@ color: white;
 cursor: pointer;
 font-size: 15px;
 }
+.error-message{
+    color: red;
+    margin-left: 206px;
+    padding: 6px 0px 0px 0px;
+    font-size: 12px;
+    display: none;
 
+}

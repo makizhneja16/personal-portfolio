@@ -119,59 +119,61 @@
             <div class="information">
                <h2>CONTACT INFO</h2>
                <div class="info-data">
+                  <p id="result"></p>
                   <form action="#" class="form-style-1">
                      <div class="input-section">
                         <label class="fixed-width" for="full-name"> NAME</label>
                         <input type="text" name="full-name" id="full-name">
+                        <div class="error-message" id="name-error">This field is mandatory</div>
                      </div>
                      <div class="input-section">
                         <label class="fixed-width" for="email-id"> EMAIL ID</label>
                         <input type="email" name="email" id="email-id">
+                        <div class="error-message" id="email-error">This field is mandatory</div>
                      </div>
                      <div class="input-section">
                         <label class="fixed-width" for= "mobile-number"> MOBILE NUMBER</label>
                         <input type="tel" name="mobile" id="mobile-number">
+                        <div class="error-message" id="mobile-error">This field is mandatory</div>
                      </div>
                      <div class="input-section">
                         <label class="fixed-width"> GENDER</label>
                         <input type="radio" name="GENDER" id="GENDER-MALE"><label for="GENDER-MALE"> MALE</label>
                         <input type="radio" name="GENDER" id="GENDER-FEMALE"><label for="GENDER-MALE"> FEMALE</label>
+                        <div class="error-message" id="gender-error">This field is mandatory</div>
                      </div>
                      <div class="input-section">
                         <label class="fixed-width" for="lang"> LANGUAGE KNOWN</label>
-                        <input type="checkbox" name="lang" id="lang">
+                        <input type="checkbox" name="lang" id="tamil-language">
                         TAMIL 
-                        <input type="checkbox" name="lang">      
+                        <input type="checkbox" name="lang" id="english-language">      
                         ENGLISH
-                        <input type="checkbox" name="lang">
+                        <input type="checkbox" name="lang" id="malayalam-language">
                         MALAYALAM
-                        <input type="checkbox" name="lang">
+                        <input type="checkbox" name="lang" id="telugu-language">
                         TELUGU
+                        <div class="error-message" id="language-error">This field is mandatory</div>
+
                      </div>
                      <div class="input-section">
-                        <label class="fixed-width" for="country"> COUNTRY</label>
+                       <label class="fixed-width" for="country"> COUNTRY</label>
                         <select name="country" id="country">
+                           <option value="">select your country</option>
                            <option value="IND">INDIA</option>
                            <option value="SL">SRILANKA</option>
                            <option value="US">USA</option>
                            <option value="ENG">ENGLAND</option>
-                        </select>
-                     </div>
-                     <div class="input-section">
-                        <label class="fixed-width" for="state"> STATE</label>
-                        <select name="STATE" id="state">
-                           <option value="IND">TAMILNADU</option>
-                           <option value="IND">KERALA</option>
-                           <option value="IND">ANDRA</option>
-                           <option value="IND">KARNATAKA </option>
-                        </select>
-                     </div>
+                         </select>
+                          <div class="error-message" id="country-error">This field is mandatory</div>
+                     </div>  
+                     
                      <div class="input-section">
                         <label class="fixed-width" for="text-area"> MESSAGE BOX</label>
                         <textarea name="message" id="text-area"></textarea>
+                        <div class="error-message" id="textarea-error">This field is mandatory</div>
                      </div>
                      <div class="action-section">
-                        <input type="submit" value="SEND" class="primary-button">
+                        <input type="button" value="SEND" class="primary-button" id="form-button">
                      </div>
                   </form>
                </div>
@@ -179,17 +181,89 @@
          </div>
       </div>
      <script>
-        function displaymessage(){
+        function printmessage(){
            var nameelement=document.getElementById('full-name');
            var username=nameelement.value;
            var emailelement=document.getElementById('email-id');
            var usermail=emailelement.value;
            var mobileelement=document.getElementById('mobile-number');
            var usermobile=mobileelement.value;
-           
-           
+           var output= 'thank you <strong>'+username+'</strong> for your time. we will send a mail to <strong>'+ usermail+'</strong> and message to <strong>'+usermobile+'</strong>';
+           var resultelement=document.getElementById('result');
+           resultelement.innerHTML= output;
+         }
+         function validateform(){
+            var nameelement=document.getElementById('full-name');
+            var username=nameelement.value;
+            if(username==''){
+               document.getElementById('name-error').style.display="block";
+            }else{
+               document.getElementById('name-error').style.display="none";
+               
+            }
+            var emailelement=document.getElementById('email-id');
+            var usermail=emailelement.value;
+            if(usermail=="" || usermail==null){
+               document.getElementById('email-error').style.display="block";
+            }else{
+               document.getElementById('email-error').style.display="none";
+            }
+            var mobileelement=document.getElementById('mobile-number');
+            var usermobile=mobileelement.value;
+            if(usermobile==""){
+               document.getElementById('mobile-error').style.display="block";
+            }else{
+               document.getElementById('mobile-error').style.display="none";
+            }
+            var maleelement=document.getElementById('GENDER-MALE'),
+            ismaleelementselected=maleelement.checked;
+            
+            var femaleelement=document.getElementById('GENDER-FEMALE'),
+            isfemaleelementselected=femaleelement.checked;
+         
+            if(ismaleelementselected || isfemaleelementselected ){
+               document.getElementById('gender-error').style.display="none";
+            }else{
+               document.getElementById('gender-error').style.display="block";
+            }
+            var tamillang=document.getElementById('tamil-language'),
+            istamillanguageselected=tamillang.checked;
+            
+            var englishlang=document.getElementById('english-language'),
+            isenglishlanguageselected=englishlang.checked;
+            
+            var malayalamlang=document.getElementById('malayalam-language'),
+            ismalayalamlanguageselected=malayalamlang.checked;
+            
+            var telugulang=document.getElementById('telugu-language'),
+            istelugulanguageselected=telugulang.checked;
 
-        }
+            if(istamillanguageselected || isenglishlanguageselected ||ismalayalamlanguageselected ||istelugulanguageselected){
+               document.getElementById('language-error').style.display="none";
+            }else{
+               document.getElementById('language-error').style.display="block";
+            }
+
+            var countryelement=document.getElementById('country'),
+             country=countryelement.value;
+             if(country=="" || country==null){
+               document.getElementById('country-error').style.display="block";
+             }else{
+               document.getElementById('country-error').style.display="none";
+             }
+
+            var textareaelement=document.getElementById('text-area'),
+              textarea=textareaelement.value;
+              if(textarea=="" || textarea==null){
+               document.getElementById('textarea-error').style.display="block";
+              }else{
+               document.getElementById('textarea-error').style.display="none";
+
+              }
+            
+         }
+         var buttonelement=document.getElementById('form-button')
+         buttonelement.addEventListener('click',validateform);
      </script>
    </body>
 </html>
