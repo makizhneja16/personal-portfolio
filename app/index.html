@@ -124,23 +124,23 @@
                      <div class="input-section">
                         <label class="fixed-width" for="full-name"> NAME</label>
                         <input type="text" name="full-name" id="full-name">
-                        <div class="error-message" id="name-error">This field is mandatory</div>
+                        
                      </div>
                      <div class="input-section">
                         <label class="fixed-width" for="email-id"> EMAIL ID</label>
                         <input type="email" name="email" id="email-id">
-                        <div class="error-message" id="email-error">This field is mandatory</div>
+                       
                      </div>
                      <div class="input-section">
                         <label class="fixed-width" for= "mobile-number"> MOBILE NUMBER</label>
                         <input type="tel" name="mobile" id="mobile-number">
-                        <div class="error-message" id="mobile-error">This field is mandatory</div>
+                        
                      </div>
                      <div class="input-section">
                         <label class="fixed-width"> GENDER</label>
                         <input type="radio" name="GENDER" id="GENDER-MALE"><label for="GENDER-MALE"> MALE</label>
                         <input type="radio" name="GENDER" id="GENDER-FEMALE"><label for="GENDER-MALE"> FEMALE</label>
-                        <div class="error-message" id="gender-error">This field is mandatory</div>
+                       
                      </div>
                      <div class="input-section">
                         <label class="fixed-width" for="lang"> LANGUAGE KNOWN</label>
@@ -152,7 +152,7 @@
                         MALAYALAM
                         <input type="checkbox" name="lang" id="telugu-language">
                         TELUGU
-                        <div class="error-message" id="language-error">This field is mandatory</div>
+                        
 
                      </div>
                      <div class="input-section">
@@ -164,13 +164,13 @@
                            <option value="US">USA</option>
                            <option value="ENG">ENGLAND</option>
                          </select>
-                          <div class="error-message" id="country-error">This field is mandatory</div>
+                        
                      </div>  
                      
                      <div class="input-section">
                         <label class="fixed-width" for="text-area"> MESSAGE BOX</label>
                         <textarea name="message" id="text-area"></textarea>
-                        <div class="error-message" id="textarea-error">This field is mandatory</div>
+                        
                      </div>
                      <div class="action-section">
                         <input type="button" value="SEND" class="primary-button" id="form-button">
@@ -182,88 +182,106 @@
       </div>
      <script>
         function printmessage(){
-           var nameelement=document.getElementById('full-name');
-           var username=nameelement.value;
-           var emailelement=document.getElementById('email-id');
-           var usermail=emailelement.value;
-           var mobileelement=document.getElementById('mobile-number');
-           var usermobile=mobileelement.value;
-           var output= 'thank you <strong>'+username+'</strong> for your time. we will send a mail to <strong>'+ usermail+'</strong> and message to <strong>'+usermobile+'</strong>';
-           var resultelement=document.getElementById('result');
+           var NameElement=document.getElementById('full-name');
+           var UserName=NameElement.value;
+           var EmailElement=document.getElementById('email-id');
+           var UserMail=EmailElement.value;
+           var MobileElement=document.getElementById('mobile-number');
+           var UserMobile=MobileElement.value;
+           var output= 'thank you <strong>'+UserName+'</strong> for your time. we will send a mail to <strong>'+ UserMail+'</strong> and message to <strong>'+UserMobile+'</strong>';
+           var ResultElement=document.getElementById('result');
            resultelement.innerHTML= output;
          }
+
+         function addErrorMessage(targetElement){
+            var errorElement=targetElement.parentnode.getelemetsbyclassname('error-message')[0];
+            if(errorElement!=undefined){
+               return false
+            }
+            var errormessageelement=document.createElement('div');
+            errorMessageElement.classList.add("error-message");
+            errorMessageelEement.innerHTML='This Field Is Mandatory';
+            targetElement.parentnode.appendchild(errorMessageElement);
+         }
+
+         function removeErrorMessage(targetElement){
+            var errorElement=targetElement.parentnode.getelemetsbyclassname('error-message')[0];
+            if(errorElement!=undefined){
+               errorElement.parentnode.removechild(errorElement);
+            }
+         }
+         
          function validateform(){
-            var nameelement=document.getElementById('full-name');
-            var username=nameelement.value;
-            if(username==''){
-               document.getElementById('name-error').style.display="block";
+            var NameElement=document.getElementById('full-name');
+            var UserName=NameElement.value;
+            if(UserName==''){
+               addErrorMessage(NameElement);
             }else{
-               document.getElementById('name-error').style.display="none";
+               removeErrorMessage(NameElement);
                
             }
-            var emailelement=document.getElementById('email-id');
-            var usermail=emailelement.value;
-            if(usermail=="" || usermail==null){
-               document.getElementById('email-error').style.display="block";
+            var EmailElement=document.getElementById('email-id');
+            var UserMail=EmailElement.value;
+            if(UserMail=="" || UserMail==null){
+               addErrorMessage(EmailElement);
             }else{
-               document.getElementById('email-error').style.display="none";
+               removeErrorMessage(EmailElement);
             }
-            var mobileelement=document.getElementById('mobile-number');
-            var usermobile=mobileelement.value;
-            if(usermobile==""){
-               document.getElementById('mobile-error').style.display="block";
+            var  MobileElement=document.getElementById('mobile-number');
+            var UserMobile= MobileElement.value;
+            if(UserMobile==""){
+               addErrorMessage(MobileElement);
             }else{
-               document.getElementById('mobile-error').style.display="none";
+               removeErrorMessage(MobileElement);
             }
-            var maleelement=document.getElementById('GENDER-MALE'),
-            ismaleelementselected=maleelement.checked;
+            var maleElement=document.getElementById('GENDER-MALE'),
+            isMaleElementSelected=MaleElement.checked;
             
-            var femaleelement=document.getElementById('GENDER-FEMALE'),
-            isfemaleelementselected=femaleelement.checked;
+            var femaleElement=document.getElementById('GENDER-FEMALE'),
+            isFemaleElementSelected=femaleElement.checked;
          
-            if(ismaleelementselected || isfemaleelementselected ){
-               document.getElementById('gender-error').style.display="none";
+            if(isMaleElementSelected || isFemaleElementSelected ){
+               removeErrorMessage(maleElement);
             }else{
-               document.getElementById('gender-error').style.display="block";
+               addErrorMessage(maleElement);
             }
-            var tamillang=document.getElementById('tamil-language'),
-            istamillanguageselected=tamillang.checked;
+            var tamilLang=document.getElementById('tamil-language'),
+            isTamilLanguageSelected=tamilLang.checked;
             
-            var englishlang=document.getElementById('english-language'),
-            isenglishlanguageselected=englishlang.checked;
+            var englishLang=document.getElementById('english-language'),
+            isEnglishLanguageSelected=englishLang.checked;
             
-            var malayalamlang=document.getElementById('malayalam-language'),
-            ismalayalamlanguageselected=malayalamlang.checked;
+            var malayalamLang=document.getElementById('malayalam-language'),
+            isMalayalamLanguageSelected=malayalamLang.checked;
             
-            var telugulang=document.getElementById('telugu-language'),
-            istelugulanguageselected=telugulang.checked;
+            var teluguLang=document.getElementById('telugu-language'),
+            isTeluguLanguageSelected=teluguLang.checked;
 
-            if(istamillanguageselected || isenglishlanguageselected ||ismalayalamlanguageselected ||istelugulanguageselected){
-               document.getElementById('language-error').style.display="none";
+            if(isTamilLanguageSelected || isEnglishLanguageSelected || isMalayalamLanguageSelected ||istelugulanguageselected){
+               removeErrorMessage(tamilLang);
             }else{
-               document.getElementById('language-error').style.display="block";
+               addErrorMessage(tamilLang);
             }
 
-            var countryelement=document.getElementById('country'),
-             country=countryelement.value;
+            var countryElement=document.getElementById('country'),
+             country=countryElement.value;
              if(country=="" || country==null){
-               document.getElementById('country-error').style.display="block";
+               addErrorMessage(countryElement);
              }else{
-               document.getElementById('country-error').style.display="none";
+               removeErrorMessage( countryElement);
              }
 
-            var textareaelement=document.getElementById('text-area'),
-              textarea=textareaelement.value;
-              if(textarea=="" || textarea==null){
-               document.getElementById('textarea-error').style.display="block";
+            var textAreaElement=document.getElementById('text-area'),
+              textArea=textAreaElement.value;
+              if(textArea=="" || textArea==null){
+               addErrorMessage(textAreaElement);
               }else{
-               document.getElementById('textarea-error').style.display="none";
-
+               removeErrorMessage(textAreaElement);
               }
             
          }
-         var buttonelement=document.getElementById('form-button')
-         buttonelement.addEventListener('click',validateform);
+         var buttonElement=document.getElementById('form-button')
+         buttonElement.addEventListener('click',validateform);
      </script>
    </body>
 </html>
